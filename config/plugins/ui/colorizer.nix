@@ -55,13 +55,14 @@
       # 启用 xterm256 颜色支持
       xterm = false;
       # 高亮显示模式
-      mode = "virtualtext"; # 背景色高亮
+      mode = "background";
+      # mode = "virtualtext"; # 背景色高亮
       # 使用 virtualtext 时显示的方块字符
-      virtualtext = "■";
+      # virtualtext = "■";
       # 虚拟文本显示位置
-      virtualtext_inline = false;
+      # virtualtext_inline = false;
       # 虚拟文本颜色模式
-      virtualtext_mode = "foreground";
+      # virtualtext_mode = "foreground";
       # 即使 buffer 不聚焦也更新颜色（如 cmp 弹窗）
       always_update = false;
       # hooks 控制高亮行为

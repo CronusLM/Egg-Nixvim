@@ -13,7 +13,7 @@
       };
       change = {
         text = "│";
-      }; 
+      };
       changedelete = {
         text = "~";
       };
