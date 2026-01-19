@@ -40,7 +40,7 @@
     enable = true;
     settings = {
       # event = ["FileType"];
-      event = ["User LazyFile"];
+      event = "User LazyFile";
     };
   };
 }
