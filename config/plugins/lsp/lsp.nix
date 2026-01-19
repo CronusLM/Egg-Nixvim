@@ -315,7 +315,8 @@
                 [vim.diagnostic.severity.HINT] = "💡",
               },
             },
-            update_in_insert = false,
+            update_in_insert = true,
+            -- update_in_insert = false,
             underline = true,
             severity_sort = true,
             float = {
