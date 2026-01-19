@@ -15,7 +15,7 @@
     formatters_by_ft = {
       c = ["clang_format"];
       cpp = ["clang_format"];
-      cmake = ["cmake-format"];
+      cmake = ["cmake_format"];
       rust = ["rustfmt"];
       python = [
         # 修复可以被 Ruff 自动修复的 lint（代码规范）错误。
