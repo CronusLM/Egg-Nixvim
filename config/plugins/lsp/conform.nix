@@ -62,7 +62,7 @@
         "prettierd"
         "prettier"
       ];
-      json = ["jq"];
+      json = ["prettierd"];
       bash = ["shfmt"];
     };
 
