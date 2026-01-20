@@ -2,7 +2,8 @@
   plugins.which-key.enable = true;
   plugins.which-key.lazyLoad = {
     settings = {
-      keys = ["<leader>"];
+      # keys = ["<leader>"];
+      event = "User CookLazy";
     };
   };
   plugins.which-key.settings = {
