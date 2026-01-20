@@ -1,7 +1,7 @@
 {pkgs, ...}: {
   plugins.treesitter = {
     enable = true;
-    folding = false;
+    folding.enable = false;
     nixvimInjections = true;
     settings = {
       highlight.enable = true;
