@@ -44,6 +44,7 @@
         packages = {
           # Lets you run `nix run .` to start nixvim
           default = nvim;
+          nixvim = nvim;
         };
         apps.default = {
           type = "app";
