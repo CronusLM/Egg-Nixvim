@@ -1,4 +1,4 @@
-# NOTE: 方便与加载速度，显然我选择前者。但依旧，保持优雅!!!
+# NOTE: 方便与加载速度，显然我选择前者。但依旧，保持优雅!!!lsp
 {
   plugins.lsp = {
     enable = true;
@@ -46,15 +46,15 @@
       enable = true;
     };
     # python 语言服务器
-    pyright = {
+    basedpyright = {
       enable = true;
       settings = {
-        pyright = {
-          disableOrganizeImports = true; # 禁用 Pyright 自动整理 import
-        };
         python = {
           analysis = {
-            ignore = "*"; # 忽略所有文件分析，让 Ruff 处理 lint
+            typeCheckingMode = "standard";
+            autoSearchPaths = true;
+            useLibraryCodeForTypes = true;
+            diagnosticMode = "openFilesOnly";
           };
         };
       };
@@ -68,6 +68,9 @@
       enable = true;
       settings = {
         diagnostics.globals = ["vim"];
+        hint = {
+          enable = false;
+        };
       };
     };
     # go 语言服务器
