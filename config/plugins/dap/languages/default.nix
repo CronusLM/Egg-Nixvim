@@ -5,7 +5,6 @@
   imports = [
     ./dap-go.nix # go
     ./dap-lldb.nix # c,cpp,rust
-    ./dap-python.nix # python
     ./dap-js.nix # js,ts
   ];
 }
