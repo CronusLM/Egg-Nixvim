@@ -5,6 +5,7 @@
   plugins.dap.lazyLoad = {
     enable = true;
     settings = {
+      event = "User CookLazy"; # NOTE: 去掉这行，会导致dap-ui设置提前于dap加载导致崩溃
       #NOTE: 狗屎一样的懒加载写法，丑陋，太恶心了。无奈之举
       keys = [
         {

@@ -39,6 +39,9 @@
     };
   };
   extraConfigLua = ''
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "LazyFile",
+      callback = function()
     local dap = require("dap")
     --NOTE: nixvim的配置中siae居然不支持浮点数，只能固定行数，一点也不方便，
     --NOTE: 只能这样注入lua的配置一点也不优雅
@@ -74,7 +77,8 @@
     dap.listeners.before.event_exited["dapui_config"] = function()
       require("dapui").close()
     end
-
+      end,
+    })
   '';
 
   plugins.dap-virtual-text.enable = true;
