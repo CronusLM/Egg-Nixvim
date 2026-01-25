@@ -2,77 +2,38 @@
   plugins.dap = {
     enable = true;
   };
-  plugins.dap.lazyLoad = {
-    enable = true;
-    settings = {
-      event = "User CookLazy"; # NOTE: 去掉这行，会导致dap-ui设置提前于dap加载导致崩溃
-      #NOTE: 狗屎一样的懒加载写法，丑陋，太恶心了。无奈之举
-      keys = [
-        {
-          __unkeyed-1 = "<leader>dB";
-          __unkeyed-3.__raw = ''
-            function()
-              require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: '))
-            end
-          '';
-          desc = "● 条件断点";
-        }
-        {
-          __unkeyed-1 = "<leader>db";
-          __unkeyed-3.__raw = ''
-            function()
-              require("dap").toggle_breakpoint()
-            end
-          '';
-          desc = "● 切换断点";
-        }
-        {
-          __unkeyed-1 = "<leader>dc";
-          __unkeyed-3.__raw = ''
-            function()
-              require("dap").continue()
-            end
-          '';
-          desc = "▶ 启动/继续调试";
-        }
-      ];
-    };
-  };
   plugins.dap.signs = {
     dapBreakpoint = {text = "🔴";};
-  };
-  plugins.dap.signs = {
     dapBreakpointCondition = {text = "🟡";};
   };
-
   keymaps = [
     # 断点
-    #   {
-    #     mode = "n";
-    #     key = "<leader>dB";
-    #     action.__raw = ''
-    #       function()
-    #         require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: '))
-    #       end
-    #     '';
-    #     options = {
-    #       silent = true;
-    #       desc = "● 条件断点";
-    #     };
-    #   }
-    #   {
-    #     mode = "n";
-    #     key = "<leader>db";
-    #     action.__raw = ''
-    #       function()
-    #         require("dap").toggle_breakpoint()
-    #       end
-    #     '';
-    #     options = {
-    #       silent = true;
-    #       desc = "● 切换断点";
-    #     };
-    #   }
+    {
+      mode = "n";
+      key = "<leader>dB";
+      action.__raw = ''
+        function()
+          require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: '))
+        end
+      '';
+      options = {
+        silent = true;
+        desc = "● 条件断点";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>db";
+      action.__raw = ''
+        function()
+          require("dap").toggle_breakpoint()
+        end
+      '';
+      options = {
+        silent = true;
+        desc = "● 切换断点";
+      };
+    }
     {
       mode = "n";
       key = "<leader>dd";
@@ -87,19 +48,19 @@
       };
     }
     # 启动 / 继续（双通道：F5 + <leader>dc）
-    #   {
-    #     mode = "n";
-    #     key = "<leader>dc";
-    #     action.__raw = ''
-    #       function()
-    #         require("dap").continue()
-    #       end
-    #     '';
-    #     options = {
-    #       silent = true;
-    #       desc = "▶ 启动/继续调试";
-    #     };
-    #   }
+    {
+      mode = "n";
+      key = "<leader>dc";
+      action.__raw = ''
+        function()
+          require("dap").continue()
+        end
+      '';
+      options = {
+        silent = true;
+        desc = "▶ 启动/继续调试";
+      };
+    }
     {
       mode = "n";
       key = "<F5>";

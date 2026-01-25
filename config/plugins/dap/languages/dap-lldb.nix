@@ -7,44 +7,7 @@
   plugins.dap-lldb.lazyLoad = {
     enable = true;
     settings = {
-      keys = [
-        {
-          __unkeyed-1 = "<leader>dB";
-          __unkeyed-3.__raw = ''
-            function()
-              require("dap").set_breakpoint(vim.fn.input('Breakpoint condition: '))
-            end
-          '';
-          desc = "● 条件断点";
-        }
-        {
-          __unkeyed-1 = "<leader>db";
-          __unkeyed-3.__raw = ''
-            function()
-              require("dap").toggle_breakpoint()
-            end
-          '';
-          desc = "● 切换断点";
-        }
-        {
-          __unkeyed-1 = "<leader>dc";
-          __unkeyed-3.__raw = ''
-            function()
-              require("dap").continue()
-            end
-          '';
-          desc = "▶ 启动/继续调试";
-        }
-        {
-          __unkeyed-1 = "<F5>";
-          __unkeyed-3.__raw = ''
-            function()
-              require("dap").continue()
-            end
-          '';
-          desc = "▶ 启动/继续调试(F5)";
-        }
-      ];
+      event = "User LazyFile";
     };
   };
 
