@@ -4,5 +4,4 @@
     ./basic.nix
     ./keymap.nix
   ];
-
 }

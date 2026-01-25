@@ -6,7 +6,7 @@
   plugins.conform-nvim.lazyLoad = {
     settings = {
       cmd = ["ConformInfo"];
-      event = ["BufWrite"];
+      event = ["User LazyFile"];
     };
   };
   plugins.conform-nvim.autoInstall.enable = true;

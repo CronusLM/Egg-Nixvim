@@ -17,6 +17,9 @@
     initLua = true;
     luaLib = true;
     nvimRuntime = true;
-    plugins = true;
+    # plugins = false;
+    # excludedPlugins = [
+    #   "telescope.nvim"
+    # ];
   };
 }

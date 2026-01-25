@@ -105,15 +105,15 @@
         desc = "高级搜索";
       };
     }
-    # BUG: 这个暂时不启用，有问题，会报错。等待修复
-    # {
-    #   action = "<CMD>Telescope keymaps layout_config={width=0.8}<CR>";
-    #   key = "<leader>fk";
-    #   options = {
-    #     silent = true;
-    #     desc = "快捷键查询";
-    #   };
-    # }
+    # FIXED: 已修复错误，禁用性能提高参数 performance.byteCompileLua.plugins 即可修复该错误
+    {
+      action = "<CMD>Telescope keymaps layout_config={width=0.8}<CR>";
+      key = "<leader>fk";
+      options = {
+        silent = true;
+        desc = "快捷键查询";
+      };
+    }
     {
       action = "<CMD>Telescope help_tags theme=ivy layout_config={height=0.4}<CR>";
       key = "<leader>H";

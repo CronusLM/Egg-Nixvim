@@ -57,19 +57,6 @@
       };
     }
 
-    # {
-    #    desc = "保存格式化";
-    #    event = "BufWritePre";
-    #    pattern = "*";
-    #    callback = {
-    #      __raw = ''
-    #        function()
-    #          vim.lsp.buf.format()
-    #        end
-    #      '';
-    #    };
-    # }
-
     {
       desc = "复制高亮";
       event = "TextYankPost";
