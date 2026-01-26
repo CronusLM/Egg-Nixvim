@@ -2,7 +2,13 @@ name: cook-nixvim CI
 on:
   push:
     branches: [main]
+    paths-ignore:
+      - README.md
+      - README.*
   pull_request:
+    paths-ignore:
+      - README.md
+      - README.*
   workflow_dispatch:
 concurrency:
   group: cook-nixvim-${{ github.ref }}
