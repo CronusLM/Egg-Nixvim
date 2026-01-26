@@ -2,7 +2,8 @@
   extraPackages = [
     pkgs.eslint_d
   ];
-  plugins.lint.enable = true;
+  # NOTE: 默认关闭，开启请使用 enable = true
+  plugins.lint.enable = false;
   plugins.lint.lazyLoad = {
     enable = true;
     settings = {

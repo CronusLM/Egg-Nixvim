@@ -52,6 +52,10 @@
             vim.opt_local.wrap = true
             vim.opt_local.linebreak = true
             vim.opt_local.breakat:append("，。！？；：")
+            vim.opt_local.expandtab = true   -- Tab 转空格
+            vim.opt_local.shiftwidth = 2     -- 缩进 2 空格
+            vim.opt_local.tabstop = 2        -- Tab 显示为 2 空格
+            vim.opt_local.softtabstop = 2
           end
         '';
       };
