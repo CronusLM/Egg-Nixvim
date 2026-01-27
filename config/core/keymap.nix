@@ -56,8 +56,8 @@
 
     # 剪贴板复制
     {
-      mode = "v";
-      key = "<leader>Y";
+      mode = ["v" "x" "n"];
+      key = "<leader>y";
       action = "\"+y";
       options = {
         desc = "复制到系统剪贴板";
@@ -65,9 +65,9 @@
     }
 
     {
-      mode = "v";
-      key = "<leader>D";
-      action = "\"+x";
+      mode = ["v" "x" "n"];
+      key = "<leader>d";
+      action = "\"+d";
       options = {
         noremap = true;
         silent = true;

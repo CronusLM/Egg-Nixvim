@@ -28,42 +28,51 @@
       nix = ["alejandra"];
       lua = ["stylua"];
       go = ["goimports"]; # 包含gofmt的功能，附带import的管理
-      javascript = [
-        "prettierd"
-        "prettier"
-      ];
-      typescript = [
-        "prettierd"
-        "prettier"
-      ];
-      javascriptreact = [
-        "prettier"
-        "prettierd"
-      ];
-      typescriptreact = [
-        "prettierd"
-        "prettier"
-      ];
-      css = [
-        "prettierd"
-        "prettier"
-      ];
-      scss = [
-        "prettierd"
-        "prettier"
-      ];
-      html = [
-        "prettierd"
-        "prettier"
-      ];
+      javascript = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
+      typescript = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
+      javascriptreact = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
+      typescriptreact = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
+      css = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
+      scss = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
+      html = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
       toml = ["taplo"];
       yaml = ["yamlfmt"];
-      markdown = [
-        "prettierd"
-        "prettier"
-      ];
+      markdown = {
+        __unkeyed-1 = "prettierd";
+        __unkeyed-2 = "prettier";
+        stop_after_first = true;
+      };
       json = ["prettierd"];
       bash = ["shfmt"];
+      typst = ["typstyle"];
     };
 
     format_on_save = {

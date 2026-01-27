@@ -110,6 +110,10 @@
     eslint = {
       enable = true;
     };
+    # typst
+    tinymist = {
+      enable = true;
+    };
     # json
     jsonls = {
       enable = true;
