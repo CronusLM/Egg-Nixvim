@@ -98,7 +98,7 @@
       {
         __unkeyed-1 = "<leader>e";
         group = "Neotree";
-        icon = "“";
+        icon = "";
         mode = "n";
       }
 
