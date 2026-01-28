@@ -4,6 +4,9 @@
 
 ## 使用说明
 
+> [!TIP]
+> 请确保你提前安装了 `Nerd Font` 字体，否则**图标**可能会无法显示
+
 > [!WARNING]
 > **⚠️ 自定义安装用户请注意：不要盲目信任第三方缓存**
 >
@@ -111,8 +114,8 @@ Neovide 专用配置
 按功能划分的插件模块
 
 > [!NOTE]
-> **`obsess`** 插件被作为安装 `github` 中未被 [**`nixvim`**](https://nix-community.github.io/nixvim) 支持的插件的代码例子，默认保持开启
-> `lint` 插件仅仅为 `JS/TS` 配置，使用 `eslint_d`，插件默认保持关闭，因为 `lsp` 中启用了 `eslint`
+> **[`obsess`](https://github.com/Youthdreamer/obsess)** 插件被作为安装 `github` 中未被 [**`nixvim`**](https://nix-community.github.io/nixvim) 支持的插件的代码范例，默认保持开启  
+> `lint` 插件仅仅为 `JS/TS` 配置，使用 `eslint_d`，插件默认保持关闭，因为 `lsp` 中启用了 `eslint`  
 > AI 插件 `avante` 目前只配置了 `deepseek` 、千问等 API 配置，如果使用其他 API 提供商请自行修改配置
 
 <details>
@@ -191,7 +194,7 @@ Neovide 专用配置
 
 > **TL;DR：可以在 SSH 链接的终端中复制编辑器内容到系统，但不能直接 `p` 粘贴系统内容**
 
-鉴于该配置可能**运行在远程 SSH 会话中**，为保证**跨系统复制粘贴**的可用性，引入了基于 **[OSC52](https://neovim.io/doc/user/provider.html#clipboard-osc52)** 的剪贴板传输方案。**采用 OSC52 的粘贴功能可能会导致编辑器卡住数十秒**，所以**禁用该粘贴功能**，也就是你无法使用 `p` 粘贴从系统中复制的内容，但是可以将编辑器中的内容复制到系统剪切板中，使用**系统自身**的粘贴快捷键将从系统复制的内容粘贴到编辑器中。该配置位置位于 `config/core/basic.nix` 可根据自身需求调整。
+鉴于该配置可能**运行在远程 SSH 会话中**，为保证**跨系统复制粘贴**的可用性，引入了基于 **[OSC52](https://neovim.io/doc/user/provider.html#clipboard-osc52)** 的剪贴板传输方案。**采用 OSC52 的粘贴功能可能会导致编辑器卡住数十秒**，所以**禁用该粘贴功能**，也就是你无法使用 `p` 粘贴从系统中复制的内容，但是可以将编辑器中的内容复制到系统剪切板中，使用**系统自身**的粘贴快捷键将从系统复制的内容粘贴到编辑器中。该配置位置位于 [`config/core/basic.nix`](./config/core/basic.nix) 可根据自身需求调整。
 
 ## 启动速度说明
 
