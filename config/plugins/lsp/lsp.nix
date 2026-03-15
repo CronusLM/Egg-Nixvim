@@ -82,7 +82,11 @@
       config = {
         settings = {
           nil = {
-            autoArchive = true;
+            nix = {
+              flake = {
+                autoArchive = false;
+              };
+            };
           };
         };
       };
