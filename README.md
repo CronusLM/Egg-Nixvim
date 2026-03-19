@@ -262,4 +262,12 @@ Neovide 专用配置
 
 ## 启动速度说明
 
-禁用 dashborad 该插件，可大幅提升首页加载速度（不影响打开文件速度）。如不需要，请fork该仓库注释掉该插件或移除，以提升加载速度。
+禁用 [dashborad.nix](./config/plugins/ui/dashboard.nix) 该插件，可大幅提升首页加载速度（不影响打开文件速度）。如不需要，请fork该仓库注释掉该插件或移除，以提升加载速度。
+
+## 文件内说明
+
+在本配置中，在许多文件中都使用 `NOTE` 的标志说明了一些配置的细节与关键。  
+建议在配置中阅读相关的说明。如果你是用本配置的编辑器，那么推荐你使用快捷键 `<leader>ft` 查询。  
+> [!NOTE]
+> ！！！重点推荐查看的 `NOTE` 在 [`obsess.nix`](./config/plugins/github/obsess.nix) 下，明确说明如何安装 `Nixvim` 官方不支持的 `Github` 上的 `Neovim` 插件，可对照该文件代码编写。  
+> `obsess.nix` 文件安装的 `obsess` 插件为我个人开发的 `neovim` 插件，个人使用，并非适合大多数人。
