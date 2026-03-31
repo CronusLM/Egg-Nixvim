@@ -8,12 +8,7 @@
     # enableTelescope = true;
     settings = {
       excludeDirs = [];
-      use_lsp = true;
-      # 即将废弃
-      # detection_methods = [
-      #   "pattern"
-      #   "parent"
-      # ];
+      lsp.enabled = true;
       patterns = [
         ".git"
         "Makefile"
