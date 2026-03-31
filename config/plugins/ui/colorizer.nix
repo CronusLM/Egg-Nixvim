@@ -5,6 +5,12 @@
     settings = {
       ft = [
         "css"
+        "scss"
+        "less"
+        "json"
+        "jsonc"
+        "toml"
+        "svg"
         "html"
         "javascript"
         "javascriptreact"
