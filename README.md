@@ -17,11 +17,14 @@ CookNixvim 是一个遵循“配置即基础设施”理念的 Nixvim 模块化�
 - [LSP说明](#lsp-说明)
 - [主题切换说明](#主题切换说明)
 - [复制粘贴功能说明](#复制粘贴功能说明)
+- [**重点必看！！！从Github安装插件**](#从Github安装插件)
+- [**懒加载说明**](#懒加载说明)
 - [启动速度说明](#启动速度说明)
 - [文件内说明](#文件内说明)
 - [Github Actions 说明](#github-actions-说明)
 - [兼容性说明](#兼容性说明)
 - [适用人群](#适用人群)
+- [友情提示](#友情提示)
 
 ## 安装使用说明
 
@@ -281,32 +284,82 @@ Neovide 专用配置
 
 鉴于该配置可能**运行在远程 SSH 会话中**，为保证**跨系统复制粘贴**的可用性，引入了基于 **[OSC52](https://neovim.io/doc/user/provider.html#clipboard-osc52)** 的剪贴板传输方案。**采用 OSC52 的粘贴功能可能会导致编辑器卡住数十秒**，所以**禁用该粘贴功能**，也就是你无法使用 `p` 粘贴从系统中复制的内容，但是可以将编辑器中的内容复制到系统剪切板中，使用**系统自身**的粘贴快捷键将从系统复制的内容粘贴到编辑器中。该配置位置位于 [`config/core/basic.nix`](./config/core/basic.nix) 可根据自身需求调整。
 
+## 从Github安装插件
+
+> 由于 `neovim` 的插件众多并大部分托管于 `Github` 中，所以 `nixvim` 并不支持全部的插件安装选项。所以本章节介绍如何安装不支持的 `Github` 托管的插件
+
+在本配置中的 [`github`](./config/plugins/github/) 文件夹下就是安装从 `Github` 上的插件。其中 [`obsess.nix`](./config/plugins/github/obsess.nix) 文件就是范例。所以请根据本文件中的例子模仿安装你想安装的插件。
+
+```nix
+   (pkgs.vimUtils.buildVimPlugin {
+     name = "obsess";
+     src = pkgs.fetchFromGitHub {
+       owner = "Youthdreamer";
+       repo = "obsess";
+       rev = "22142f988073292ce51c4568fbda0a40970b876d";
+       hash = "sha256-mWNZutb1Jzmp4CBCLAYaw3YJDv8tZJBcrBWq5TRgiMY=";
+     };
+   })
+```
+
+这段代码是最为核心的安装插件的代码，做简单说明。
+
+- name: 一般为插件的名称
+- owner: 插件仓库的拥有者
+- repo: 插件仓库的名称
+- rev: 插件在 `github` 上提交的的 `hash` 数值，该数值可决定你是用什么任何状态下的插件
+- hash: 一般是系统生成，所以建议先不写这个选项，直接构建项目，会在报错信息中给出该选项的 `hash` 数值
+
+之后在通过 `extraConfigLua` 该参数对插件配置，具体可参考 [`obsess.nix`](./config/plugins/github/obsess.nix) 文件中的代码范例(**该范例中也展示了如何使用 `lz.n` 对插件懒加载**)
+
+> [`obsess`](https://github.com/Youthdreamer/obsess) 点击可达项目地址，本插件是专为本人编写的插件。在此配置中作为示例安装，默认开启。
+
+## 懒加载说明
+
+> 加载工具使用的 [`lz.n`](https://github.com/lumen-oss/lz.n)
+> 懒加载所使用的自定义事件在 [autocmd.nix](./config/core/autocmd.nix)
+
+> [!TIP]
+> 本配置中额外设定了两个自定义用户事件作为懒加载的触发时机  
+> 事件一: `User CookLazy` 在 `VimEnter` 之后触发。即当 `Neovim 已经启动完成 `时触发。  
+> 事件二: `User LazyFile` 在 `BufReadPost` 与 `BUfNewFile` 后触发，即当 `真正有文件被打开或创建` 时触发。
+
+使用自定义事件是为了，达到**更合理的插件加载时机与更快的启动速度**，但是**受制于一些插件的缘故无法使用懒加载，所以本项目尽量将启动速度拉到最快的同时不影响插件对于工作流的影响**，当然你可以对本项目的懒加载时机做个性化调整。
+
+本配置中大量使用了自定义事件作为懒加载时机，你可以在打开本配置的编辑器后，使用`<leader>fg` 中输入 `User CookLazy` 与 `User LazyFile` 查看使用该事件的插件配置。
+
+> 进一步的速度提升可以查看接下来的，[启动速度说明章节](#启动速度说明)
+
 ## 启动速度说明
 
-禁用 [dashborad.nix](./config/plugins/ui/dashboard.nix) 该插件，可大幅提升首页加载速度（不影响打开文件速度）。如不需要，请fork该仓库注释掉该插件或移除，以提升加载速度。
+- 禁用 [dashborad.nix](./config/plugins/ui/dashboard.nix) 该插件，可大幅提升首页加载速度(不影响打开文件速度)。
+- 禁用 [transparent.nix](./config/plugins/ui/transparent.nix) 该插件，也可提高首页加载速度。
+- 使用不同第三方插件的颜色主题也会影响启动速度，其中个人推荐使用 `gruvbox` 对启动速度的影响较小。
+
+> 如不需要该插件，请 `fork` 仓库后将其注释或移除，以获得更快的加载体验。
 
 ## 文件内说明
 
-在本配置中，在许多文件中都使用 `NOTE` 的标志说明了一些配置的细节与关键。  
+在本配置中，在许多文件中都使用 `NOTE` 的标志说明了一些配置的细节与关键。
 建议在配置中阅读相关的说明。如果你是用本配置的编辑器，那么推荐你使用快捷键 `<leader>ft` 查询。
 
 > [!NOTE]
-> ！！！重点推荐查看的 `NOTE` 在 [`obsess.nix`](./config/plugins/github/obsess.nix) 下，明确说明如何安装 `Nixvim` 官方不支持的 `Github` 上的 `Neovim` 插件，可对照该文件代码编写。  
+> ！！！重点推荐查看的 `NOTE` 在 [`obsess.nix`](./config/plugins/github/obsess.nix) 下，明确说明如何安装 `Nixvim` 官方不支持的 `Github` 上的 `Neovim` 插件，可对照该文件代码编写。
 > `obsess.nix` 文件安装的 `obsess` 插件为我个人开发的 `neovim` 插件，个人使用，并非适合大多数人。
 
 ## Github Actions 说明
 
-本项目的 `Actions` 是构建项目缓存并推向 [Cachix](https://app.cachix.org/) 方便使用该配置的用户避免本地构建浪费资源，优化体验。  
+本项目的 `Actions` 是构建项目缓存并推向 [Cachix](https://app.cachix.org/) 方便使用该配置的用户避免本地构建浪费资源，优化体验。
 但是如果你 `Fork` 本项目，那么默认是不开启此 Actions 任务的，你可以手动触发但是请注意将 actions 的配置文件中的内容改成你自己的 cachix 的内容，比如：设定 cachix 的认证令牌等机密变量与修改 `.github/workflows/cook-nixvim.yml` 文件的相关代码。
 
 > [!TIP]
-> 目前仅构建 `x86_64-linux` 与 `aarch64-linux` 两种架构缓存，另外的 `macos` 架构缓存默认关闭。  
+> 目前仅构建 `x86_64-linux` 与 `aarch64-linux` 两种架构缓存，另外的 `macos` 架构缓存默认关闭。
 > `macos` 用户请查看[兼容性说明](#兼容性说明)
 
 ## 兼容性说明
 
 > [!WARNING]
-> **⚠️ 未在 `MacOS` 中测试**  
+> **⚠️ 未在 `MacOS` 中测试**
 > 可能无法在 `MacOS` 中正常使用，在 `ArchLinux` 与 `Nixos` 等表现稳定。
 
 ## 适用人群
@@ -317,3 +370,10 @@ Neovide 专用配置
 
 > [!WARNING]
 > **⚠️ 但是本配置无法类似于 `lua` 配置的 `Neovim` 一样改动就可以及时查看效果，本配置必须构建后才可以生效修改后的配置，所以经常改动配置与经常安装不同插件的用户慎用**
+
+## 友情提示
+
+本配置是可以看到最终的 `lua` 配置的代码内容，在安装好本配置后使用 `nixvim-print-init` 即可看到最终的 `lua` 格式的配置文件。方便迁移。
+
+> `nixvim-print-init` 是安装配置后自动生成的，每次更新配置后，查看新的 `lua` 配置都需要运行一次。  
+> `nixvim-print-init | cat > my_init.lua` 即可输出到文件中查看。
