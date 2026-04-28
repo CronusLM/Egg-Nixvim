@@ -11,32 +11,26 @@
       src = pkgs.fetchFromGitHub {
         owner = "Youthdreamer";
         repo = "obsess";
-        rev = "22142f988073292ce51c4568fbda0a40970b876d";
-        hash = "sha256-mWNZutb1Jzmp4CBCLAYaw3YJDv8tZJBcrBWq5TRgiMY=";
+        rev = "054eeac470f6f0e82994ead7d6903c9f76bc18fa";
+        hash = "sha256-5wiVDKu+fv6qsRKjDZ195bG1qJq5Ys5/WPZNKYh/wTc=";
       };
     })
   ];
   extraConfigLua = ''
-    local WINDOW_WIDTH = 60
-    local WINDOW_HEIGHT = 15
-
     local opts = {
-        window = {
-            relative = "editor",
-            anchor = "NW",
-            width = WINDOW_WIDTH,
-            height = WINDOW_HEIGHT,
-            row = (vim.api.nvim_get_option('lines') - WINDOW_HEIGHT) / 2,
-            col = (vim.api.nvim_get_option('columns') - WINDOW_WIDTH) / 2,
-            border = "rounded",
-            style = "minimal",
-            title = "Obsess",
-        },
-        -- 倒计时结束后的弹窗提醒设置
-        flash = {
-            times = 6, -- 闪烁次数
-            interval_ms = 300, -- 每次间隔时间
-        }
+      position = "center",
+      window = {
+        width  = 60,
+        height = 15,
+        border = "rounded",
+        style = "minimal",
+        title  = "Obsess",
+      },
+      -- 倒计时结束后的弹窗提醒设置
+      flash = {
+        times = 6,         -- 闪烁次数
+        interval_ms = 300, -- 每次间隔时间
+      },
     }
     -- 懒加载
     require("lz.n").load {
