@@ -89,12 +89,11 @@
       }
 
       {
-        __unkeyed-1 = "<leader><tab>";
+        __unkeyed-1 = "<leader>k";
         group = "tab管理";
         icon = "󰓩";
         mode = "n";
       }
-
       {
         __unkeyed-1 = "<leader>e";
         group = "Neotree";

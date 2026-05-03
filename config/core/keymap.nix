@@ -174,51 +174,6 @@
       };
     }
 
-    # tab 管理
-    {
-      mode = "n";
-      key = "<leader><tab><tab>";
-      action = "<cmd>tabnew<CR>";
-      options = {
-        silent = true;
-        desc = "新建标签页";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader><tab>d";
-      action = "<cmd>tabclose<CR>";
-      options = {
-        silent = true;
-        desc = "关闭当前标签页";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader><tab>o";
-      action = "<cmd>tabonly<CR>";
-      options = {
-        silent = true;
-        desc = "关闭其他标签页";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader><tab>l";
-      action = "<cmd>tabnext<CR>";
-      options = {
-        silent = true;
-        desc = "切换到下一个标签页";
-      };
-    }
-    {
-      mode = "n";
-      key = "<leader><tab>h";
-      action = "<cmd>tabprevious<CR>";
-      options = {
-        silent = true;
-        desc = "切换到上一个标签页";
-      };
-    }
+
   ];
 }
