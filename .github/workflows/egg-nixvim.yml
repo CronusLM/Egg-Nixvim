@@ -38,9 +38,9 @@ jobs:
       - name: Setup Cachix
         uses: cachix/cachix-action@v15
         with:
-          name: cook-nixvim
+          name: egg-nixvim
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
       - name: Build egg-nixvim
         run: nix build .#packages.${{ matrix.system }}.egg-nixvim -L
       - name: Push nix paths to Cachix
-        run: cachix push cook-nixvim $(nix path-info .#packages.${{ matrix.system }}.egg-nixvim)
+        run: cachix push egg-nixvim $(nix path-info .#packages.${{ matrix.system }}.egg-nixvim)
