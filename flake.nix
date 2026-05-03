@@ -1,11 +1,11 @@
 {
- description = "EggNixvim — a modular Neovim configuration built with Nix";
+  description = "EggNixvim — a modular Neovim configuration built with Nix";
   nixConfig = {
     extra-substituters = [
-      "https://cook-nixvim.cachix.org"
+      "https://egg-nixvim.cachix.org"
     ];
     extra-trusted-public-keys = [
-      "cook-nixvim.cachix.org-1:LjCZ3VSYrcwTQxHpd834EIswdkfHoSd/EsKUYLRruF4="
+      "egg-nixvim.cachix.org-1:l3KtAYJCu10EE3s8JNCAt8WnnR4HV2b37FmdXRLndo0="
     ];
   };
   inputs = {
