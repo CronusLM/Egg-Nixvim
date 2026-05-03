@@ -1,4 +1,4 @@
-name: cook-nixvim CI
+name: egg-nixvim CI
 on:
   push:
     branches: [main]
@@ -11,7 +11,7 @@ on:
       - README.*
   workflow_dispatch:
 concurrency:
-  group: cook-nixvim-${{ github.ref }}
+  group: egg-nixvim-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   build:
@@ -40,7 +40,7 @@ jobs:
         with:
           name: cook-nixvim
           authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
-      - name: Build cook-nixvim
-        run: nix build .#packages.${{ matrix.system }}.cook-nixvim -L
+      - name: Build egg-nixvim
+        run: nix build .#packages.${{ matrix.system }}.egg-nixvim -L
       - name: Push nix paths to Cachix
-        run: cachix push cook-nixvim $(nix path-info .#packages.${{ matrix.system }}.cook-nixvim)
+        run: cachix push cook-nixvim $(nix path-info .#packages.${{ matrix.system }}.egg-nixvim)

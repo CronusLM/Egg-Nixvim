@@ -1,8 +1,8 @@
-# CookNixvim
+# EggNixvim
 
-CookNixvim 是一个遵循“配置即基础设施”理念的 Nixvim 模块化方案。它不仅仅是一份 Neovim 配置，更是一个完整的、可重现的开发环境。
+EggNixvim 是一个遵循“配置即基础设施”理念的 Nixvim 模块化方案。它不仅仅是一份 Neovim 配置，更是一个完整的、可重现的开发环境。
 
-通过利用 Nix Flakes 的强大威力，CookNixvim 将复杂的 LSP 依赖、工具链以及插件管理封装为声明式的代码。无论你在哪台机器上，只需一行指令，即可瞬间“烹饪”出一致、稳定且功能完备的现代化编辑器体验。
+通过利用 Nix Flakes 的强大威力，EggNixvim 将复杂的 LSP 依赖、工具链以及插件管理封装为声明式的代码。无论你在哪台机器上，只需一行指令，即可瞬间“烹饪”出一致、稳定且功能完备的现代化编辑器体验。
 
 > [!TIP]
 > **零污染**：所有插件与工具依赖均由 Nix 隔离管理，不污染系统全局环境。  
@@ -58,8 +58,8 @@ CookNixvim 是一个遵循“配置即基础设施”理念的 Nixvim 模块化�
 
 |    安装方式    |          说明          | 命令                                             |
 | :------------: | :--------------------: | :----------------------------------------------- |
-|  **快速体验**  | 临时运行，不安装到系统 | `nix run github:Youthdreamer/CookNixvim`         |
-|  **永久安装**  |   安装到 Nix profile   | `nix profile add github:Youthdreamer/CookNixvim` |
+|  **快速体验**  | 临时运行，不安装到系统 | `nix run github:[你的用户名]/egg-nixvim`         |
+|  **永久安装**  |   安装到 Nix profile   | `nix profile add github:[你的用户名]/egg-nixvim` |
 | **自定义安装** | 需要先 Fork 并修改配置 | `nix profile add github:[用户名]/[仓库名]`       |
 
 > [!NOTE]
@@ -76,7 +76,7 @@ CookNixvim 是一个遵循“配置即基础设施”理念的 Nixvim 模块化�
 ```nix
 {
   inputs = {
-    CookNixvim.url = "github:Youthdreamer/CookNixvim";
+    egg-nixvim.url = "github:[你的用户名]/egg-nixvim";
   }
 }
 ```
@@ -87,9 +87,9 @@ CookNixvim 是一个遵循“配置即基础设施”理念的 Nixvim 模块化�
 { inputs, system, ...}:
 {
   # NixOS
-  environment.systemPackages = [ inputs.CookNixvim.packages.${pkgs.system}.default ];
+  environment.systemPackages = [ inputs.egg-nixvim.packages.${pkgs.system}.default ];
   # home-manager
-  home.packages = [ inputs.CookNixvim.packages.${pkgs.system}.default ];
+  home.packages = [ inputs.egg-nixvim.packages.${pkgs.system}.default ];
 }
 ```
 
@@ -350,7 +350,7 @@ Neovide 专用配置
 ## Github Actions 说明
 
 本项目的 `Actions` 是构建项目缓存并推向 [Cachix](https://app.cachix.org/) 方便使用该配置的用户避免本地构建浪费资源，优化体验。
-但是如果你 `Fork` 本项目，那么默认是不开启此 Actions 任务的，你可以手动触发但是请注意将 actions 的配置文件中的内容改成你自己的 cachix 的内容，比如：设定 cachix 的认证令牌等机密变量与修改 `.github/workflows/cook-nixvim.yml` 文件的相关代码。
+但是如果你 `Fork` 本项目，那么默认是不开启此 Actions 任务的，你可以手动触发但是请注意将 actions 的配置文件中的内容改成你自己的 cachix 的内容，比如：设定 cachix 的认证令牌等机密变量与修改 `.github/workflows/egg-nixvim.yml` 文件的相关代码。
 
 > [!TIP]
 > 目前仅构建 `x86_64-linux` 与 `aarch64-linux` 两种架构缓存，另外的 `macos` 架构缓存默认关闭。

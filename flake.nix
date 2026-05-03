@@ -1,5 +1,5 @@
 {
-  description = "CookNixvim — a modular Neovim configuration built with Nix";
+ description = "EggNixvim — a modular Neovim configuration built with Nix";
   nixConfig = {
     extra-substituters = [
       "https://cook-nixvim.cachix.org"
@@ -50,7 +50,7 @@
 
         packages = {
           # Lets you run `nix run .` to start nixvim
-          cook-nixvim = nvim;
+          egg-nixvim = nvim;
           default = nvim;
         };
         apps.default = {
