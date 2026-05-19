@@ -124,7 +124,7 @@
     {
       mode = "n";
       key = "<leader>b1";
-      action = "<Cmd>BufferLineGoToBuffer 1<CR>";
+      action = "<Cmd>lua require(\"bufferline\").go_to(1, true)<CR>";
       options = {
         silent = true;
         desc = "跳转到第 1 个 buffer";
@@ -133,7 +133,7 @@
     {
       mode = "n";
       key = "<leader>b2";
-      action = "<Cmd>BufferLineGoToBuffer 2<CR>";
+      action = "<Cmd>lua require(\"bufferline\").go_to(2, true)<CR>";
       options = {
         silent = true;
         desc = "跳转到第 2 个 buffer";
@@ -142,7 +142,7 @@
     {
       mode = "n";
       key = "<leader>b3";
-      action = "<Cmd>BufferLineGoToBuffer 3<CR>";
+      action = "<Cmd>lua require(\"bufferline\").go_to(3, true)<CR>";
       options = {
         silent = true;
         desc = "跳转到第 3 个 buffer";
@@ -151,7 +151,7 @@
     {
       mode = "n";
       key = "<leader>b4";
-      action = "<Cmd>BufferLineGoToBuffer 4<CR>";
+      action = "<Cmd>lua require(\"bufferline\").go_to(4, true)<CR>";
       options = {
         silent = true;
         desc = "跳转到第 4 个 buffer";
@@ -160,7 +160,7 @@
     {
       mode = "n";
       key = "<leader>b5";
-      action = "<Cmd>BufferLineGoToBuffer 5<CR>";
+      action = "<Cmd>lua require(\"bufferline\").go_to(5, true)<CR>";
       options = {
         silent = true;
         desc = "跳转到第 5 个 buffer";
@@ -169,7 +169,7 @@
     {
       mode = "n";
       key = "<leader>b6";
-      action = "<Cmd>BufferLineGoToBuffer 6<CR>";
+      action = "<Cmd>lua require(\"bufferline\").go_to(6, true)<CR>";
       options = {
         silent = true;
         desc = "跳转到第 6 个 buffer";
@@ -178,7 +178,7 @@
     {
       mode = "n";
       key = "<leader>b7";
-      action = "<Cmd>BufferLineGoToBuffer 7<CR>";
+      action = "<Cmd>lua require(\"bufferline\").go_to(7, true)<CR>";
       options = {
         silent = true;
         desc = "跳转到第 7 个 buffer";
@@ -187,7 +187,7 @@
     {
       mode = "n";
       key = "<leader>b8";
-      action = "<Cmd>BufferLineGoToBuffer 8<CR>";
+      action = "<Cmd>lua require(\"bufferline\").go_to(8, true)<CR>";
       options = {
         silent = true;
         desc = "跳转到第 8 个 buffer";
@@ -196,7 +196,7 @@
     {
       mode = "n";
       key = "<leader>b9";
-      action = "<Cmd>BufferLineGoToBuffer 9<CR>";
+      action = "<Cmd>lua require(\"bufferline\").go_to(9, true)<CR>";
       options = {
         silent = true;
         desc = "跳转到第 9 个 buffer";
