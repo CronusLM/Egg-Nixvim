@@ -40,10 +40,10 @@
       show_buffer_close_icons = true; # 是否显示每个 buffer 上的关闭图标
       show_close_icon = true; # 是否显示 Tabline 右侧的关闭所有 buffer 图标
       show_tab_indicators = true; # 是否显示 Tabline 上方的指示器
-      enforce_regular_tabs = true; # 强制使用常规标签页样式
+      enforce_regular_tabs = false; # 显示 buffer 而非标签页
       always_show_bufferline = true; # 总是显示 bufferline，即使只有一个 buffer
       sort_by = "insert_after_current"; # buffer 排序方式，可选 "insert_after_current", "id", "extension", "relative_directory", "tabs"
-      numbers = "none"; # buffer 编号显示，可选 "none", "ordinal", "buffer_id", "custom"
+      numbers = "ordinal"; # 显示 buffer 序号（配合 <leader>1-9 跳转）
     };
   };
 
@@ -117,6 +117,109 @@
       action = "<Cmd>BufferLineGroupClose ungrouped<CR>";
       options = {
         desc = "删除未固定的缓冲区";
+      };
+    }
+
+    # 序号跳转
+    {
+      mode = "n";
+      key = "<leader>b1";
+      action = "<Cmd>BufferLineGoToBuffer 1<CR>";
+      options = {
+        silent = true;
+        desc = "跳转到第 1 个 buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>b2";
+      action = "<Cmd>BufferLineGoToBuffer 2<CR>";
+      options = {
+        silent = true;
+        desc = "跳转到第 2 个 buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>b3";
+      action = "<Cmd>BufferLineGoToBuffer 3<CR>";
+      options = {
+        silent = true;
+        desc = "跳转到第 3 个 buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>b4";
+      action = "<Cmd>BufferLineGoToBuffer 4<CR>";
+      options = {
+        silent = true;
+        desc = "跳转到第 4 个 buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>b5";
+      action = "<Cmd>BufferLineGoToBuffer 5<CR>";
+      options = {
+        silent = true;
+        desc = "跳转到第 5 个 buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>b6";
+      action = "<Cmd>BufferLineGoToBuffer 6<CR>";
+      options = {
+        silent = true;
+        desc = "跳转到第 6 个 buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>b7";
+      action = "<Cmd>BufferLineGoToBuffer 7<CR>";
+      options = {
+        silent = true;
+        desc = "跳转到第 7 个 buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>b8";
+      action = "<Cmd>BufferLineGoToBuffer 8<CR>";
+      options = {
+        silent = true;
+        desc = "跳转到第 8 个 buffer";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>b9";
+      action = "<Cmd>BufferLineGoToBuffer 9<CR>";
+      options = {
+        silent = true;
+        desc = "跳转到第 9 个 buffer";
+      };
+    }
+
+    # 左右移动 buffer
+    {
+      mode = "n";
+      key = "<leader>bh";
+      action = "<Cmd>BufferLineMovePrev<CR>";
+      options = {
+        silent = true;
+        desc = "将当前 buffer 左移";
+      };
+    }
+    {
+      mode = "n";
+      key = "<leader>bl";
+      action = "<Cmd>BufferLineMoveNext<CR>";
+      options = {
+        silent = true;
+        desc = "将当前 buffer 右移";
       };
     }
   ];

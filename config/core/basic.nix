@@ -39,19 +39,6 @@
         },
       }
     end
-  '' + ''
-    vim.api.nvim_create_autocmd("VimEnter", {
-      once = true,
-      callback = function()
-        local map = vim.keymap.set
-        local opts = { noremap = true, silent = true }
-        map("n", "<leader>kn", "<cmd>tabnew<CR>", vim.tbl_extend("force", opts, { desc = "新建标签页" }))
-        map("n", "<leader>kd", "<cmd>tabclose<CR>", vim.tbl_extend("force", opts, { desc = "关闭当前标签页" }))
-        map("n", "<leader>ko", "<cmd>tabonly<CR>", vim.tbl_extend("force", opts, { desc = "关闭其他标签页" }))
-        map("n", "<leader>kl", "<cmd>tabnext<CR>", vim.tbl_extend("force", opts, { desc = "下一个标签页" }))
-        map("n", "<leader>kh", "<cmd>tabprevious<CR>", vim.tbl_extend("force", opts, { desc = "上一个标签页" }))
-      end,
-    })
   '';
 
   opts = {
@@ -121,7 +108,6 @@
     sessionoptions = [
       "buffers"
       "curdir"
-      "tabpages"
       "winsize"
       "help"
       "globals"
