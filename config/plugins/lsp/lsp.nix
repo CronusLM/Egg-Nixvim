@@ -5,14 +5,17 @@
     # C/C++ 语言服务器
     clangd = {
       enable = true;
+      packageFallback = true;
     };
     # CMake的LSP
     cmake = {
       enable = true;
+      packageFallback = true;
     };
     # Rust 语言服务器
     rust_analyzer = {
       enable = true;
+      packageFallback = true;
       config = {
         settings = {
           rust-analyzer = {
@@ -33,10 +36,12 @@
     # ts/js 语言服务器
     ts_ls = {
       enable = true;
+      packageFallback = true;
     };
     # python 语言服务器
     basedpyright = {
       enable = true;
+      packageFallback = true;
       config = {
         settings = {
           python = {
@@ -53,6 +58,7 @@
     # Ruff
     ruff = {
       enable = true;
+      packageFallback = true;
     };
     # lua 语言服务器
     lua_ls = {
@@ -71,6 +77,7 @@
     # go 语言服务器
     gopls = {
       enable = true;
+      packageFallback = true;
     };
     # Shell 语言服务器
     bashls = {
@@ -99,9 +106,6 @@
     cssls = {
       enable = true;
     };
-    stylelint_lsp = {
-      enable = true;
-    };
     # Tailwind CSS 语言服务器
     tailwindcss = {
       enable = true;
@@ -113,6 +117,7 @@
     # eslint
     eslint = {
       enable = true;
+      packageFallback = true;
     };
     # typst
     tinymist = {
