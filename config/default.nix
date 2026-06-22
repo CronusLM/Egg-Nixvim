@@ -5,6 +5,9 @@
     ./neovide
   ];
 
+  # transparent.nvim 在新版 nixpkgs 中被标记为 unfree 许可证
+  nixpkgs.config.allowUnfree = true;
+
   enableMan = true;
   enablePrintInit = true;
   # NOTE: 性能说明
