@@ -42,24 +42,11 @@
 
   plugins.blink-cmp.settings.sources = {
     default = [
-      "avante"
       "lsp"
       "path"
       "snippets"
       "buffer"
     ];
-    providers = {
-      avante = {
-        module = "blink-cmp-avante";
-        name = "Avante";
-        score_offset = 68;
-        enabled.__raw = ''
-          function()
-            return vim.bo.filetype == 'AvanteInput'
-          end
-        '';
-      };
-    };
   };
 
   plugins.blink-cmp.settings.cmdline = {
