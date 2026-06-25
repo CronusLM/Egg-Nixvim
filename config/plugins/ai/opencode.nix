@@ -19,6 +19,14 @@
     };
   };
 
+  # 禁用 ask completion：opencode 默认的 customlist completion 在
+  # Neovim 0.12 的 vim.ui.input 中可能触发 E486 搜索错误。
+  extraConfigLua = ''
+    vim.g.opencode_opts = vim.tbl_deep_extend("force", vim.g.opencode_opts or {}, {
+      ask = { completion = "" },
+    })
+  '';
+
   keymaps = [
     {
       mode = ["n" "x"];
