@@ -1,18 +1,6 @@
-{pkgs, lib, ...}: {
+{pkgs, ...}: {
   # opencode.nvim — 在 Neovim 中与 OpenCode AI 交互
-  # 需要额外安装 opencode CLI: https://opencode.ai
-
-  # opencode v1.17.7 预编译二进制含当前 CPU 不支持的指令（SIGILL），
-  # 强制本地构建避免使用缓存。
-  nixpkgs.overlays = [
-    (final: prev: {
-      opencode = prev.opencode.overrideAttrs (old: {
-        preferLocalBuild = true;
-        allowSubstitutes = false;
-      });
-    })
-  ];
-
+  # 需要另开终端运行 opencode --port（本地 npm 安装版）
   plugins.opencode = {
     enable = true;
     # nixpkgs v0.10.0 有 bug，用 v0.13.2
@@ -31,20 +19,6 @@
       };
     };
   };
-
-  # 自动启动 opencode 服务（背景 job，无终端窗口干扰）
-  extraConfigLua = ''
-    vim.g.opencode_opts = vim.tbl_deep_extend("force", vim.g.opencode_opts or {}, {
-      server = {
-        start = function()
-          vim.fn.jobstart({"opencode", "--port"}, { detach = true })
-        end,
-      },
-    })
-  '';
-
-  # 让 opencode CLI 在 Neovim 的 PATH 中可用
-  extraPackages = [ pkgs.opencode ];
 
   keymaps = [
     {
