@@ -1,6 +1,6 @@
 {pkgs, ...}: {
   # opencode.nvim — 在 Neovim 中与 OpenCode AI 交互
-  # 需要另开终端运行 opencode --port（本地 npm 安装版）
+  # 需要另一终端运行 `opencode web`（tmux 中运行，端口 4096）
   plugins.opencode = {
     enable = true;
     # nixpkgs v0.10.0 有 bug，用 v0.13.2
@@ -14,9 +14,8 @@
       };
     };
     settings = {
-      events = {
-        reload = true;
-      };
+      events.reload = true;
+      server.url = "http://localhost:4096";
     };
   };
 
