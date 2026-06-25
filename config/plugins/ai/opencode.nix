@@ -14,9 +14,22 @@
       };
     };
     settings = {
-      auto_reload = true;
+      events = {
+        reload = true;
+      };
     };
   };
+
+  # 自动启动 opencode 服务（背景 job，无终端窗口干扰）
+  extraConfigLua = ''
+    vim.g.opencode_opts = vim.tbl_deep_extend("force", vim.g.opencode_opts or {}, {
+      server = {
+        start = function()
+          vim.fn.jobstart({"opencode", "--port"}, { detach = true })
+        end,
+      },
+    })
+  '';
 
   # 让 opencode CLI 在 Neovim 的 PATH 中可用
   extraPackages = [ pkgs.opencode ];
