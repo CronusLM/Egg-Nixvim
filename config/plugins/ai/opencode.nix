@@ -23,7 +23,7 @@
       mode = ["n" "x"];
       key = "<leader>A";
       action = ''
-        <cmd>lua require("opencode").ask()<cr>
+        <cmd>lua require("opencode").ask("@this: ")<cr>
       '';
       options = {
         silent = true;
@@ -31,14 +31,14 @@
       };
     }
     {
-      mode = ["n" "t"];
-      key = "<leader>At";
+      mode = ["n" "x"];
+      key = "<leader>As";
       action = ''
-        <cmd>lua require("opencode").toggle()<cr>
+        <cmd>lua require("opencode").select()<cr>
       '';
       options = {
         silent = true;
-        desc = "Toggle OpenCode";
+        desc = "Select OpenCode action";
       };
     }
   ];
