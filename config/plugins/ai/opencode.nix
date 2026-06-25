@@ -1,6 +1,18 @@
-{pkgs, ...}: {
+{pkgs, lib, ...}: {
   # opencode.nvim — 在 Neovim 中与 OpenCode AI 交互
   # 需要额外安装 opencode CLI: https://opencode.ai
+
+  # opencode v1.17.7 预编译二进制含当前 CPU 不支持的指令（SIGILL），
+  # 强制本地构建避免使用缓存。
+  nixpkgs.overlays = [
+    (final: prev: {
+      opencode = prev.opencode.overrideAttrs (old: {
+        preferLocalBuild = true;
+        allowSubstitutes = false;
+      });
+    })
+  ];
+
   plugins.opencode = {
     enable = true;
     # nixpkgs v0.10.0 有 bug，用 v0.13.2
