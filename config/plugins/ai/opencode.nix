@@ -18,6 +18,9 @@
     };
   };
 
+  # 让 opencode CLI 在 Neovim 的 PATH 中可用
+  extraPackages = [ pkgs.opencode ];
+
   keymaps = [
     {
       mode = ["n" "x"];
