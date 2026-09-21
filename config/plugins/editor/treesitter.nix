@@ -1,14 +1,11 @@
-{pkgs, ...}: {
+{config, ...}: {
   plugins.treesitter = {
     enable = true;
     folding.enable = false;
+    indent.enable = true;
+    highlight.enable = true;
     nixvimInjections = true;
-    settings = {
-      highlight.enable = true;
-      indent.enable = true;
-      incremental_selection.enable = true;
-    };
-    grammarPackages = with pkgs.vimPlugins.nvim-treesitter.builtGrammars; [
+    grammarPackages = with config.plugins.treesitter.package.builtGrammars; [
       bash # bashls
       c # clangd
       cpp # clangd
