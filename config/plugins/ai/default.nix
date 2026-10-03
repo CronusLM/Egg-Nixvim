@@ -1,5 +1,6 @@
 {
   imports = [
-    ./opencode.nix
+    ./avante.nix
+    ./blink-cmp-avante.nix
   ];
 }

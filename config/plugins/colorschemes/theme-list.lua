@@ -14,7 +14,7 @@ M.colorschemes = {
 	["dracula-soft"] = {},
 
 	-- monokai-pro-nvim主题
-	["monokai-pro-default"] = {},
+	["monokai-pro"] = {},
 	["monokai-pro-ristretto"] = {},
 	["monokai-pro-classic"] = {},
 	["monokai-pro-light"] = {},
@@ -24,9 +24,6 @@ M.colorschemes = {
 
 	-- onedark-nvim主题
 	["onedark"] = { style = "dark" },
-
-	-- poimandres主题
-	["poimandres"] = {},
 
 	-- gtihub主题
 	["github_dark"] = {},

@@ -89,11 +89,12 @@
       }
 
       {
-        __unkeyed-1 = "<leader>k";
+        __unkeyed-1 = "<leader><tab>";
         group = "tab管理";
         icon = "󰓩";
         mode = "n";
       }
+
       {
         __unkeyed-1 = "<leader>e";
         group = "Neotree";
@@ -139,6 +140,12 @@
         __unkeyed-1 = "<leader>o";
         group = "专注面板";
         icon = "";
+        mode = "n";
+      }
+      {
+        __unkeyed-1 = "<leader>u";
+        group = "Undotree";
+        icon = "󰕌";
         mode = "n";
       }
     ];

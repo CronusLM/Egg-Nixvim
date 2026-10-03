@@ -42,11 +42,25 @@
 
   plugins.blink-cmp.settings.sources = {
     default = [
+      # "avante"
       "lsp"
       "path"
       "snippets"
       "buffer"
     ];
+    # ai插件的辅助插件
+    # providers = {
+    #   avante = {
+    #     module = "blink-cmp-avante";
+    #     name = "Avante";
+    #     score_offset = 68;
+    #     enabled.__raw = ''
+    #       function()
+    #         return vim.bo.filetype == 'AvanteInput'
+    #       end
+    #     '';
+    #   };
+    # };
   };
 
   plugins.blink-cmp.settings.cmdline = {
